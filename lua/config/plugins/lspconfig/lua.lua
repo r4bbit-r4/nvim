@@ -1,8 +1,10 @@
 return {
-    name = "lua-language-server",
+    name = "lua_ls",
     settings = {
-        workspace = { checkThirdParty = false },
-        telemetry = { enable = false },
+        Lua = {
+            workspace = { checkThirdParty = false },
+            telemetry = { enable = false },
+        },
     },
 }
 

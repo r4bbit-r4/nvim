@@ -33,6 +33,7 @@ local function load_plugins()
             local ok, plugin_loader = pcall(loadfile, plugin_basepath .. "/" .. name .. "/init.lua")
             if ok and type(plugin_loader) == "function" then
                 local plugin_spec = plugin_loader()
+                vim.notify("Loaded plugin spec from: " .. type(plugin_spec), vim.log.levels.INFO)
                 if type(plugin_spec) == "table" then
                     if plugin_spec[1] then
                         vim.list_extend(plugins, plugin_spec)
@@ -41,7 +42,7 @@ local function load_plugins()
                     end
                 end
             else
-                vim.notify("Failed to load plugin config for " .. name .. ": " .. plugin_spec, vim.log.levels.ERROR)
+                vim.notify("Failed to load plugin config for " .. name .. ": " .. tostring(plugin_spec), vim.log.levels.ERROR)
             end
         end
     end

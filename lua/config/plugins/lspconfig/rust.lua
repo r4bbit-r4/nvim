@@ -1,9 +1,11 @@
 return {
-    name = "rust-analyzer",
+    name = "rust_analyzer",
     settings = {
-        check = {
-            command = 'clippy',
-        }
+        ['rust-analyzer'] = {
+            check = {
+                command = 'clippy',
+            },
+        },
     },
 }
 
