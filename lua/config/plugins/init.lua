@@ -10,6 +10,7 @@
 local plugins = {}
 local plugin_basepath = vim.fn.stdpath("config") .. "/lua/config/plugins"
 
+
 -- Load plugins from folders
 local function load_plugins()
 
@@ -30,7 +31,7 @@ local function load_plugins()
             if not ok or plugin_loader_or_err == nil then
                 vim.notify("Failed to load plugin file for " .. name .. ": " .. tostring(plugin_loader_or_err), vim.log.levels.ERROR)
             else
-                -- vim.notify("Loadfile result for " .. name .. ": " .. tostring(plugin_loader_or_err), vim.log.levels.INFO)
+                -- vim.notify("Loadfile result for " .. name .. ": " .. tostring(plugin_loader_or_err), vim.log.levels.INFO, {silent = true})
                 if type(plugin_loader_or_err) == "function" then
                     local ok2, plugin_spec = pcall(plugin_loader_or_err)
                     if ok2 and type(plugin_spec) == "table" then
