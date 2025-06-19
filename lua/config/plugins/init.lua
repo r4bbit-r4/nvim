@@ -47,6 +47,6 @@ local function load_plugins()
         end
     end
 end
-    
+
 load_plugins()
 return plugins
